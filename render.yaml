@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: optisked-ai
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app
+    healthCheckPath: /health
+    envVars:
+      - key: OPTISKED_SECRET
+        generateValue: true

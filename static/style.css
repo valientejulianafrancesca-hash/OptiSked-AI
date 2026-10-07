@@ -1,0 +1,318 @@
+:root{--navy:#071a36;--navy2:#0d2548;--cyan:#16b8e8;--cyan2:#08a6d4;--bg:#f4f8fb;--text:#10233f;--muted:#61738a;--border:#dbe4ed;--white:#fff;--danger:#dc3545;--success:#16804b;--shadow:0 10px 28px rgba(16,35,63,.07)}
+*{box-sizing:border-box}html{font-size:16px}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:16px}.app-shell{min-height:100vh;display:flex}.sidebar{width:286px;min-height:100vh;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:0;height:100vh}.brand{padding:24px 22px 18px;display:flex;gap:12px;align-items:center;border-bottom:1px solid rgba(255,255,255,.08)}.brand img{width:54px;height:54px;object-fit:cover;border-radius:50%;background:#fff}.brand strong{display:block;font-size:20px}.brand span{display:block;font-size:10px;letter-spacing:1px;color:#9db1ca;margin-top:4px}.role-label{font-size:12px;font-weight:800;letter-spacing:1.3px;color:#64d9f4;padding:20px 22px 8px}.sidebar nav{display:flex;flex-direction:column;padding:6px 12px;gap:5px}.sidebar nav a{color:#b5c4d7;text-decoration:none;padding:14px 14px;border-radius:8px;display:flex;gap:13px;align-items:center;font-size:16px;font-weight:600}.sidebar nav a i{width:20px;text-align:center}.sidebar nav a:hover,.sidebar nav a.active{background:#10355f;color:#fff;box-shadow:inset 4px 0 0 var(--cyan)}.sidebar-bottom{padding:18px 20px;border-top:1px solid rgba(255,255,255,.08)}.profile{display:flex;align-items:center;gap:10px}.profile-dot{width:38px;height:38px;border-radius:50%;background:var(--cyan);display:grid;place-items:center;font-weight:800;color:var(--navy)}.profile strong{display:block;font-size:14px}.profile small{display:block;color:#9db1ca;font-size:12px;margin-top:3px}.signout{display:inline-flex;gap:8px;align-items:center;color:#ffb0b8;text-decoration:none;margin-top:18px;font-size:14px}.main-area{flex:1;padding:38px 42px;min-width:0}.alerts{display:grid;gap:10px;margin-bottom:20px}.alert{padding:14px 17px;border-radius:10px;border:1px solid;font-size:15px;display:flex;align-items:flex-start;gap:10px}.alert-success{background:#eefaf4;border-color:#bfe7cf;color:#14683e}.alert-error{background:#fff1f2;border-color:#fecdd3;color:#9f1239}.page-header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:28px}.page-header h1{font-size:32px;margin:0 0 8px;font-weight:800;letter-spacing:-.5px}.page-header p{font-size:16px;color:var(--muted);margin:0;line-height:1.5}.primary-button,.secondary-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:8px;padding:13px 18px;font-size:16px;font-weight:750;text-decoration:none;cursor:pointer}.primary-button{background:var(--navy);color:#fff}.primary-button:hover{background:var(--navy2)}.secondary-button{background:#edf3f8;color:var(--text);border:1px solid var(--border)}.full{width:100%}.card{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:25px;margin-bottom:22px}.card h2{font-size:20px;margin:0 0 5px}.card p{color:var(--muted);margin:0;line-height:1.5}.card-title-row,.section-title,.program-header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.icon-button{width:40px;height:40px;border:1px solid var(--border);background:#fff;color:var(--muted);border-radius:8px;display:grid;place-items:center;text-decoration:none}.form-card{margin-bottom:28px}.form-grid{display:grid;gap:18px;margin-top:22px}.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.form-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.form-grid label{font-weight:700;font-size:15px;color:#243a55}.form-grid input,.form-grid select,.code-form input{display:block;width:100%;height:50px;margin-top:8px;border:1px solid #c9d6e2;border-radius:8px;padding:0 14px;background:#fff;color:var(--text);font-size:16px;outline:none}.form-grid input:focus,.form-grid select:focus,.code-form input:focus{border-color:var(--cyan2);box-shadow:0 0 0 3px rgba(22,184,232,.12)}.subsection{border-top:1px solid var(--border);margin-top:25px;padding-top:22px}.subsection h3,.slot-box h3{font-size:17px;margin:0 0 4px}.subsection p{font-size:14px}.day-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.day-pills input{display:none}.day-pills span{display:inline-flex;padding:10px 16px;border:1px solid var(--border);border-radius:999px;background:#fff;cursor:pointer;font-weight:700;color:#52677e}.day-pills input:checked+span{background:#dff7fd;border-color:#7bd9ee;color:#087b9e}.slot-box{margin-top:25px;padding:20px;border-radius:10px;background:#f5f9fc;border:1px solid var(--border)}.form-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}.conflict-panel{margin-top:20px;background:#fff2f2;border:1px solid #fecaca;border-radius:10px;padding:17px;color:#9f1239}.conflict-panel h3{margin:0 0 9px;font-size:17px}.conflict-panel ul{margin:0;padding-left:20px;line-height:1.7}.ai-panel{margin-top:18px;background:#effaff;border:1px solid #a9e7f5;border-radius:10px;padding:18px}.ai-badge{display:inline-flex;gap:6px;align-items:center;color:#087b9e;font-size:12px;font-weight:850;letter-spacing:.8px}.ai-heading h3{margin:5px 0 3px;font-size:18px}.ai-heading p{font-size:14px}.suggestion{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#fff;border:1px solid #d9edf3;border-radius:9px;padding:14px;margin-top:10px}.suggestion strong{display:block;font-size:15px}.suggestion small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.schedule-groups{display:grid;gap:20px}.program-card{padding:0;overflow:hidden}.program-header{padding:21px 24px;background:#fff;border-bottom:1px solid var(--border);align-items:center}.program-header h2{font-size:19px;margin:8px 0 2px}.program-header p{font-size:14px}.program-badge,.count-badge,.cyan-label,.green-label{display:inline-flex;align-items:center;border-radius:999px;font-size:12px;font-weight:800;padding:6px 10px}.program-badge{background:#e6f8fc;color:#087b9e}.count-badge{background:#edf2f7;color:#50647b}.cyan-label{background:#dff7fd;color:#087b9e}.green-label{background:#e5f8ed;color:#177245}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:850px}th{background:#f7fafc;color:#6b7d92;text-align:left;font-size:12px;letter-spacing:.7px;text-transform:uppercase;padding:13px 18px;border-bottom:1px solid var(--border)}td{padding:16px 18px;border-bottom:1px solid #edf1f5;font-size:15px;vertical-align:middle}tr:last-child td{border-bottom:0}.code-pill{display:inline-block;background:#eaf6fb;color:#087b9e;border-radius:6px;padding:5px 8px;font-weight:800;font-size:13px}.danger-icon{border:0;background:none;color:var(--danger);cursor:pointer;font-size:16px}.empty-state{text-align:center;padding:65px 20px}.empty-state i{font-size:42px;color:#a9b8c8}.empty-state h2{margin:16px 0 6px}.empty-inline,.empty-table{text-align:center;color:var(--muted);padding:28px}.code-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.code-section{min-width:0}.access-card{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:17px;background:#f8fbfd;border:1px solid var(--border);border-radius:9px;margin-top:12px}.access-info strong{display:block;font-size:16px}.access-info small{display:block;color:var(--muted);margin-top:5px}.access-info code{display:inline-block;margin-top:9px;padding:7px 10px;border-radius:6px;font-size:14px;font-weight:850;letter-spacing:.3px}.teacher-code{background:#dff7fd;color:#087b9e}.student-code{background:#e5f8ed;color:#177245}.copy-button{background:var(--navy);color:#fff;border:0;border-radius:7px;padding:10px 13px;font-weight:700;cursor:pointer}.record-row,.class-card{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:17px 0;border-bottom:1px solid #edf1f5}.record-row:last-child{border-bottom:0}.record-row strong,.record-row span{display:block}.record-row span{color:var(--muted);margin-top:4px}.inline-actions{display:inline-block}.primary-small,.danger-small{border:0;border-radius:7px;padding:9px 13px;font-weight:700;cursor:pointer}.primary-small{background:#dff7fd;color:#087b9e}.danger-small{background:#fff1f2;color:#b42332}.status{display:inline-flex;padding:6px 9px;border-radius:999px;font-size:12px;font-weight:800}.status.attending{background:#e5f8ed;color:#177245}.status.pending{background:#fff7df;color:#956b00}.status.approved{background:#e5f8ed;color:#177245}.status.rejected,.status.leave{background:#fff1f2;color:#b42332}.action-card{display:flex;justify-content:space-between;align-items:center;gap:20px}.code-form{display:flex;gap:10px;min-width:430px}.class-card h3{margin:10px 0 5px;font-size:19px}.class-card p{font-size:14px}.attendance-form{display:flex;align-items:center;gap:10px}.file-label{font-size:13px;color:var(--muted);border:1px dashed #b8c7d5;padding:10px;border-radius:8px}.file-label input{display:block;margin-top:5px;max-width:190px}.full-row{grid-column:1/-1}
+.auth-page{min-height:100vh;display:grid;grid-template-columns:45% 55%;background:#f4f8fb}.auth-hero{background:var(--navy);color:#fff;padding:70px 8vw;display:flex;flex-direction:column;justify-content:center}.auth-logo{display:flex;align-items:center;gap:16px;margin-bottom:70px}.auth-logo img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#fff}.auth-logo strong{display:block;font-size:26px}.auth-logo span{display:block;color:#9db1ca;font-size:12px;letter-spacing:1.2px;margin-top:5px}.auth-copy{max-width:650px}.auth-copy h1{font-size:54px;line-height:1.05;margin:0 0 24px;letter-spacing:-1.5px}.auth-copy h1 span{color:#38c7ef}.auth-copy p{font-size:19px;line-height:1.65;color:#b9c9dc;max-width:590px}.feature-list{display:grid;gap:17px;margin-top:34px}.feature-list div{font-size:16px;color:#e6eff8}.feature-list i{width:25px;color:#38c7ef}.auth-panel{display:flex;align-items:center;justify-content:center;padding:55px}.login-card{width:min(660px,100%);background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 45px rgba(16,35,63,.09);padding:48px 52px}.auth-tabs{display:flex;gap:34px;border-bottom:1px solid var(--border);margin-bottom:32px}.auth-tabs a{font-size:18px;font-weight:800;color:#8797aa;text-decoration:none;padding:0 5px 15px;border-bottom:3px solid transparent}.auth-tabs a.active{color:var(--text);border-bottom-color:var(--cyan)}.login-card h2{font-size:34px;margin:0 0 8px}.auth-subtitle{font-size:16px;color:var(--muted);margin:0 0 28px}.login-card form{display:grid;gap:20px}.login-card label{font-size:15px;font-weight:750;color:#29405d}.login-card input,.login-card select{width:100%;height:55px;margin-top:8px;border:1px solid #c9d6e2;border-radius:8px;padding:0 15px;font-size:17px;color:var(--text);outline:none;background:#fff}.login-card input:focus,.login-card select:focus{border-color:var(--cyan2);box-shadow:0 0 0 3px rgba(22,184,232,.12)}.password-field{position:relative}.password-field input{padding-right:55px}.password-field button{position:absolute;right:6px;top:14px;width:42px;height:42px;border:0;background:none;color:#8194a9;cursor:pointer;font-size:17px}.inline-alert{padding:12px 14px;border-radius:8px;font-size:14px;margin-bottom:18px}.inline-alert.error{background:#fff1f2;color:#9f1239;border:1px solid #fecdd3}.inline-alert.success{background:#eefaf4;color:#14683e;border:1px solid #bfe7cf}.auth-footer{text-align:center;margin-top:24px;color:var(--muted);font-size:14px}.auth-footer a{color:#087b9e;font-weight:800;text-decoration:none}.login-card .form-grid{margin-top:0}.login-card .form-grid.two{gap:14px}.login-card .primary-button{height:55px;font-size:17px}
+@media(max-width:1100px){.auth-page{grid-template-columns:1fr}.auth-hero{padding:35px 8vw}.auth-logo{margin-bottom:30px}.auth-copy h1{font-size:42px}.code-columns{grid-template-columns:1fr}.sidebar{width:240px}.main-area{padding:30px}}
+@media(max-width:760px){.sidebar{position:static;width:100%;height:auto;min-height:0}.app-shell{display:block}.sidebar nav{flex-direction:row;overflow:auto}.sidebar nav a span{white-space:nowrap}.sidebar-bottom{display:none}.main-area{padding:22px 16px}.page-header,.action-card,.class-card{display:block}.page-header .primary-button,.page-header form{margin-top:15px}.form-grid.two,.form-grid.three{grid-template-columns:1fr}.code-form{min-width:0;margin-top:16px}.attendance-form{margin-top:15px;flex-wrap:wrap}.login-card{padding:32px 24px}.auth-panel{padding:24px}.auth-copy{display:none}.auth-hero{padding:25px}.auth-logo{margin:0}.auth-page{min-height:100vh}.auth-logo img{width:55px;height:55px}.login-card h2{font-size:28px}}
+/* Schedule Builder teacher/duration refinements */
+.form-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.field-help{display:block;color:var(--muted);font-size:13px;font-weight:500;margin-top:7px;line-height:1.4}
+.slot-heading{margin-bottom:16px}
+.slot-heading h3{font-size:19px!important}
+.slot-heading p{font-size:14px;color:var(--muted);margin:0}
+.duration-note{margin-top:14px;padding:11px 13px;border-radius:8px;background:#eaf6fb;color:#087b9e;font-size:13px;font-weight:600}
+#endTimeInput{background:#eef3f7;color:#42566d;font-weight:700;cursor:not-allowed}
+@media(max-width:1050px){.form-grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.form-grid.four{grid-template-columns:1fr}}
+
+/* =========================================================
+   OPTISKED AI - EXACT LOGO FIX
+   The HTML uses class="optisked-logo" on the real image.
+   These rules intentionally override older logo rules.
+   ========================================================= */
+.brand .optisked-logo.sidebar-logo {
+  width: 68px !important;
+  height: 68px !important;
+  min-width: 68px !important;
+  min-height: 68px !important;
+  max-width: 68px !important;
+  max-height: 68px !important;
+  display: block !important;
+  flex: 0 0 68px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  padding: 0 !important;
+}
+
+.auth-logo .optisked-logo.login-logo {
+  width: 120px !important;
+  height: 120px !important;
+  min-width: 120px !important;
+  min-height: 120px !important;
+  max-width: 120px !important;
+  max-height: 120px !important;
+  display: block !important;
+  flex: 0 0 120px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .brand .optisked-logo.sidebar-logo {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    max-width: 52px !important;
+    max-height: 52px !important;
+    flex-basis: 52px !important;
+  }
+  .auth-logo .optisked-logo.login-logo {
+    width: 86px !important;
+    height: 86px !important;
+    min-width: 86px !important;
+    min-height: 86px !important;
+    max-width: 86px !important;
+    max-height: 86px !important;
+    flex-basis: 86px !important;
+  }
+}
+
+/* =========================================================
+   OPTISKED AI - READABLE TEXT / ACCESSIBILITY PASS
+   Keeps the approved layout and uses the real optisked-logo.jpg.
+   ========================================================= */
+body{line-height:1.55;letter-spacing:.05px}
+.brand strong{font-size:22px!important}
+.brand span{font-size:12px!important}
+.role-label{font-size:14px!important}
+.sidebar nav a{font-size:18px!important;padding:15px 15px}
+.profile strong{font-size:16px!important}
+.profile small{font-size:13px!important}
+.signout{font-size:16px!important}
+.alert{font-size:16px!important}
+.page-header h1{font-size:38px!important}
+.page-header p{font-size:18px!important}
+.primary-button,.secondary-button{font-size:18px!important;padding:14px 20px}
+.card{padding:28px}
+.card h2{font-size:22px!important}
+.card p{font-size:16px}
+.form-grid label{font-size:17px!important}
+.form-grid input,.form-grid select,.code-form input{font-size:18px!important;height:54px}
+.subsection h3,.slot-box h3{font-size:19px!important}
+.subsection p,.slot-heading p{font-size:16px!important}
+.day-pills span{font-size:16px;padding:11px 17px}
+.slot-box{padding:22px}
+.conflict-panel h3{font-size:19px!important}
+.ai-badge{font-size:14px!important}
+.ai-heading h3{font-size:20px!important}
+.ai-heading p{font-size:16px!important}
+.suggestion strong{font-size:17px!important}
+.suggestion small{font-size:15px!important}
+th{font-size:13px!important}
+td{font-size:16px!important}
+.code-pill{font-size:14px!important}
+.access-info strong{font-size:17px!important}
+.access-info small{font-size:14px!important}
+.access-info code{font-size:15px!important}
+.copy-button,.primary-small,.danger-small{font-size:15px!important}
+.record-row strong{font-size:17px!important}
+.record-row span{font-size:15px!important}
+.status{font-size:13px!important}
+.class-card h3{font-size:21px!important}
+.class-card p{font-size:16px!important}
+.file-label{font-size:14px!important}
+.auth-logo strong{font-size:29px!important}
+.auth-logo span{font-size:13px!important}
+.auth-copy p{font-size:20px!important}
+.feature-list div{font-size:18px!important}
+.auth-tabs a{font-size:20px!important}
+.login-card h2{font-size:36px!important}
+.auth-subtitle{font-size:18px!important}
+.login-card label{font-size:17px!important}
+.login-card input,.login-card select{font-size:18px!important;height:58px}
+.inline-alert{font-size:15px!important}
+.auth-footer{font-size:16px!important}
+.login-card .primary-button{font-size:18px!important;height:58px}
+
+/* Real logo file only */
+.brand .optisked-logo.sidebar-logo{
+ width:68px!important;height:68px!important;min-width:68px!important;min-height:68px!important;
+ max-width:68px!important;max-height:68px!important;object-fit:contain!important;padding:0!important;
+ border-radius:50%!important;background:#fff!important;display:block!important;flex:0 0 68px!important;
+}
+.auth-logo .optisked-logo.login-logo{
+ width:120px!important;height:120px!important;min-width:120px!important;min-height:120px!important;
+ max-width:120px!important;max-height:120px!important;object-fit:contain!important;padding:0!important;
+ border-radius:50%!important;background:#fff!important;display:block!important;flex:0 0 120px!important;
+}
+@media(max-width:760px){
+ .brand .optisked-logo.sidebar-logo{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;max-width:52px!important;max-height:52px!important;flex-basis:52px!important}
+ .auth-logo .optisked-logo.login-logo{width:86px!important;height:86px!important;min-width:86px!important;min-height:86px!important;max-width:86px!important;max-height:86px!important;flex-basis:86px!important}
+}
+
+
+/* ==========================================================
+   OPTISKED AI — READABILITY / LARGE TEXT PASS
+   ========================================================== */
+html{font-size:18px!important}
+body{font-size:18px!important;line-height:1.55!important}
+.sidebar nav a{font-size:18px!important;line-height:1.35!important;padding:16px 15px!important}
+.brand strong{font-size:22px!important}
+.brand span{font-size:12px!important}
+.role-label{font-size:14px!important}
+.profile strong{font-size:16px!important}
+.profile small{font-size:14px!important}
+.signout{font-size:16px!important}
+.main-area{padding:40px 44px!important}
+.page-header h1{font-size:38px!important;line-height:1.15!important}
+.page-header p{font-size:18px!important;line-height:1.6!important}
+.primary-button,.secondary-button{font-size:18px!important;min-height:52px!important;padding:14px 20px!important}
+.alert{font-size:17px!important;line-height:1.5!important;padding:16px 18px!important}
+.card{padding:28px!important}
+.card h2{font-size:24px!important;line-height:1.3!important}
+.card p{font-size:17px!important;line-height:1.6!important}
+.form-grid{gap:20px!important}
+.form-grid label{font-size:17px!important;line-height:1.45!important}
+.form-grid input,.form-grid select,.code-form input{height:56px!important;font-size:18px!important;padding:0 16px!important}
+.subsection h3,.slot-box h3{font-size:20px!important}
+.subsection p{font-size:16px!important}
+.day-pills span{font-size:17px!important;padding:12px 18px!important}
+.conflict-panel{font-size:17px!important;line-height:1.6!important}
+.conflict-panel h3{font-size:20px!important}
+.conflict-panel ul{line-height:1.85!important}
+.ai-badge{font-size:14px!important}
+.ai-heading h3{font-size:21px!important}
+.ai-heading p{font-size:16px!important}
+.suggestion{padding:17px!important}
+.suggestion strong{font-size:17px!important}
+.suggestion small{font-size:15px!important;line-height:1.5!important}
+.program-header{padding:23px 26px!important}
+.program-header h2{font-size:22px!important}
+.program-header p{font-size:16px!important}
+.program-badge,.count-badge,.cyan-label,.green-label{font-size:14px!important;padding:7px 11px!important}
+th{font-size:14px!important;padding:15px 18px!important}
+td{font-size:17px!important;padding:17px 18px!important;line-height:1.5!important}
+.code-pill{font-size:15px!important}
+.access-card{padding:19px!important}
+.access-info strong{font-size:19px!important}
+.access-info small{font-size:15px!important;line-height:1.5!important}
+.access-info code{font-size:16px!important;padding:8px 11px!important}
+.copy-button,.primary-small,.danger-small{font-size:16px!important;min-height:44px!important;padding:10px 14px!important}
+.record-row{padding:19px 0!important}
+.record-row strong{font-size:19px!important}
+.record-row span{font-size:16px!important;line-height:1.5!important}
+.status{font-size:14px!important;padding:7px 10px!important}
+.class-card{padding:19px 0!important}
+.class-card h3{font-size:22px!important}
+.class-card p{font-size:17px!important;line-height:1.55!important}
+.file-label{font-size:15px!important}
+.file-label input{font-size:15px!important}
+.empty-state{font-size:18px!important}
+.empty-state h2{font-size:26px!important}
+.empty-inline,.empty-table{font-size:17px!important;line-height:1.55!important}
+.action-card{padding:25px 28px!important}
+.code-form{min-width:500px!important}
+
+/* Authentication pages */
+.auth-hero{padding:76px 8vw!important}
+.auth-logo strong{font-size:31px!important}
+.auth-logo span{font-size:14px!important}
+.auth-copy h1{font-size:58px!important;line-height:1.08!important}
+.auth-copy p{font-size:21px!important;line-height:1.7!important}
+.feature-list{gap:19px!important}
+.feature-list div{font-size:19px!important;line-height:1.5!important}
+.auth-panel{padding:58px!important}
+.login-card{padding:52px 56px!important}
+.auth-tabs{gap:38px!important}
+.auth-tabs a{font-size:22px!important}
+.login-card h2{font-size:38px!important}
+.auth-subtitle{font-size:18px!important;line-height:1.6!important}
+.login-card form{gap:22px!important}
+.login-card label{font-size:18px!important}
+.login-card input,.login-card select{height:60px!important;font-size:19px!important}
+.password-field button{font-size:19px!important}
+.inline-alert{font-size:16px!important;line-height:1.5!important}
+.auth-footer{font-size:16px!important}
+.login-card .primary-button{font-size:19px!important;height:60px!important}
+
+/* Keep the actual uploaded logo and readable sizing */
+.brand .optisked-logo.sidebar-logo{width:68px!important;height:68px!important;min-width:68px!important;min-height:68px!important;max-width:68px!important;max-height:68px!important;object-fit:contain!important;padding:0!important}
+.auth-logo .optisked-logo.login-logo{width:120px!important;height:120px!important;min-width:120px!important;min-height:120px!important;max-width:120px!important;max-height:120px!important;object-fit:contain!important;padding:0!important}
+
+@media(max-width:1100px){
+ .main-area{padding:32px!important}
+ .page-header h1{font-size:34px!important}
+ .auth-copy h1{font-size:48px!important}
+ .code-form{min-width:0!important;width:100%!important}
+}
+@media(max-width:760px){
+ html{font-size:17px!important}
+ body{font-size:17px!important}
+ .sidebar{width:260px!important}
+ .sidebar nav a{font-size:17px!important}
+ .main-area{padding:22px 18px!important}
+ .page-header h1{font-size:31px!important}
+ .page-header p{font-size:17px!important}
+ .card{padding:22px!important}
+ th{font-size:13px!important}
+ td{font-size:16px!important}
+ .auth-hero{padding:38px 26px!important}
+ .auth-copy h1{font-size:40px!important}
+ .auth-copy p{font-size:18px!important}
+ .feature-list div{font-size:17px!important}
+ .auth-panel{padding:24px 18px!important}
+ .login-card{padding:34px 26px!important}
+ .login-card h2{font-size:32px!important}
+ .auth-tabs a{font-size:19px!important}
+ .brand .optisked-logo.sidebar-logo{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;max-width:52px!important;max-height:52px!important}
+ .auth-logo .optisked-logo.login-logo{width:88px!important;height:88px!important;min-width:88px!important;min-height:88px!important;max-width:88px!important;max-height:88px!important}
+}
+
+/* ==========================================================
+   OPTISKED AI — PROGRAM SEPARATION + ATTENDANCE WORKFLOW
+   ========================================================== */
+.info-banner{display:flex;gap:13px;align-items:flex-start;padding:17px 19px;margin:0 0 24px;background:#eef7fb;border:1px solid #cce6ef;border-radius:12px;color:#164963;font-size:16px;line-height:1.55}.info-banner i{font-size:19px;margin-top:2px;color:var(--cyan2)}
+.year-overview{padding:0!important;overflow:hidden}.year-overview>.section-title{padding:27px 28px 15px}.year-group{border-top:1px solid var(--border)}.year-group.compact{margin-top:0}.year-group-header{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;background:#fbfdff;border-bottom:1px solid var(--border)}.year-group-header h3{margin:0;font-size:23px!important}.year-group-header span{display:inline-block;margin-top:5px;color:var(--muted);font-size:15px}.student-count{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 8px;border-radius:999px;background:#eaf6fb;color:#087b9e;font-weight:800}.status-date{font-size:15px;font-weight:800;color:var(--muted);padding:7px 11px;border:1px solid var(--border);border-radius:999px;background:#fff}
+.teacher-class-card{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:23px 0;border-bottom:1px solid #edf1f5}.teacher-class-main{min-width:0;flex:1}.class-meta{display:flex;flex-wrap:wrap;gap:7px}.year-badge,.section-badge{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;background:#edf2f7;color:#52677e;font-weight:800;font-size:13px}.teacher-class-main h3{font-size:23px!important;margin:11px 0 6px}.teacher-class-main p{font-size:17px!important;margin:0;color:var(--muted)}.teacher-status-area{min-width:430px;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:9px}.attendance-state{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:999px;font-size:15px;font-weight:900}.attendance-state.attending{background:#e5f8ed;color:#177245}.attendance-state.on-leave{background:#fff1f2;color:#b42332}.attendance-state.pending{background:#fff7df;color:#956b00}.attendance-proof-form{display:flex;align-items:center;gap:8px}.file-label.compact{font-size:14px;padding:9px 11px;background:#fff}.attendance-action{border:0;border-radius:8px;padding:11px 13px;font-size:15px;font-weight:900;cursor:pointer}.attendance-action.present{background:#e5f8ed;color:#177245}.attendance-action.leave-action{background:#fff1f2;color:#b42332}.attendance-action:hover{filter:brightness(.98);transform:translateY(-1px)}
+.student-roster-card{margin:0 0 15px;padding:18px 20px;background:#f8fbfd;border:1px solid var(--border);border-radius:11px}.student-roster-heading h4{margin:0;font-size:18px!important}.student-roster-heading p{margin:5px 0 14px;color:var(--muted);font-size:14px!important}.student-attendance-actions{display:flex;flex-wrap:wrap;gap:6px}.student-btn{border:1px solid transparent;border-radius:7px;padding:8px 10px;font-size:14px;font-weight:800;cursor:pointer}.student-btn.present{background:#e8f8ef;color:#177245;border-color:#bfe7cf}.student-btn.absent{background:#fff1f2;color:#b42332;border-color:#fecdd3}.student-btn.excused{background:#eef3f7;color:#52677e;border-color:#d7e1ea}.student-btn.selected{box-shadow:0 0 0 2px rgba(7,26,54,.10);transform:translateY(-1px)}.status.student-present{background:#e5f8ed;color:#177245}.status.student-absent{background:#fff1f2;color:#b42332}.status.student-excused{background:#eef3f7;color:#52677e}.leave-form-card{margin:0 0 22px;padding:18px 20px;background:#fff8f8;border:1px solid #f2cccc;border-radius:11px}.leave-form-card h4{margin:0 0 5px;font-size:18px}.leave-form-card p{margin:0 0 14px;font-size:15px;color:var(--muted)}.leave-inline-form{display:grid;grid-template-columns:180px minmax(180px,1fr) auto;gap:12px;align-items:end}.leave-inline-form label{font-size:14px;font-weight:800}.leave-inline-form input{display:block;width:100%;height:48px;margin-top:7px;border:1px solid #c9d6e2;border-radius:8px;padding:0 12px;font-size:16px}
+.leave-decision{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.status.leave{background:#fff1f2;color:#b42332}.status.rejected{background:#fff1f2;color:#b42332}.status-legend{display:flex;flex-wrap:wrap;gap:20px;padding:4px 0 18px;color:var(--muted);font-weight:700;font-size:14px}.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.legend-dot.green{background:#16804b}.legend-dot.red{background:#dc3545}.legend-dot.yellow{background:#d8a31d}
+@media(max-width:1050px){.teacher-status-area{min-width:0;justify-content:flex-start}.teacher-class-card{flex-direction:column}.leave-inline-form{grid-template-columns:1fr}.leave-inline-form .attendance-action{width:max-content}}@media(max-width:760px){.info-banner{font-size:15px}.year-group-header{padding:17px 20px}.year-overview>.section-title{padding:22px 20px}.teacher-class-main h3{font-size:20px!important}.teacher-class-main p{font-size:16px!important}.teacher-status-area{width:100%;justify-content:flex-start}.attendance-proof-form{width:100%;flex-wrap:wrap}.file-label.compact{width:100%}.attendance-action{font-size:14px}.student-roster-card{padding:15px}.student-attendance-actions{min-width:280px}}
+
+/* ==========================================================
+   TEACHER ATTENDANCE DATE-BASED WORKSPACE
+   ========================================================== */
+.teacher-workspace{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px;align-items:start}.teacher-inner-sidebar{position:sticky;top:24px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:12px}.teacher-inner-sidebar-title{font-size:14px;font-weight:900;color:#415872;letter-spacing:.4px;padding:10px 11px 13px;border-bottom:1px solid var(--border);margin-bottom:7px}.teacher-inner-sidebar-title i{margin-right:7px;color:var(--cyan2)}.teacher-inner-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:#4e657d;padding:12px 11px;border-radius:8px;font-size:15px;font-weight:800;margin:3px 0}.teacher-inner-link i{width:18px;text-align:center}.teacher-inner-link:hover,.teacher-inner-link.active{background:#eef8fb;color:#087b9e}.teacher-inner-heading{padding:14px 11px 5px;color:#7b8da1;text-transform:uppercase;font-size:11px;font-weight:900;letter-spacing:1px}.teacher-inner-link.year-link{font-size:14px;font-weight:750;padding:10px 11px}.teacher-workspace-main{min-width:0}.teacher-status-legend{padding-bottom:20px}.legend-dot.gray{background:#8b98a8}.class-day-note{margin-top:10px;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:800;color:#1b7b50;background:#eefaf4;padding:8px 11px;border-radius:8px}.class-day-note.not-today{color:#5e7188;background:#f1f4f7}.status-help{font-size:13px;color:var(--muted);font-weight:700}.attendance-state.not-today{background:#eef3f7;color:#61738a}.leave-disabled{background:#edf1f5!important;color:#7b8a99!important;cursor:not-allowed!important}.leave-inline-form select{display:block;width:100%;height:48px;margin-top:7px;border:1px solid #c9d6e2;border-radius:8px;padding:0 12px;font-size:16px;background:#fff;color:var(--text)}.student-attendance-panel{scroll-margin-top:24px}.student-year-section{border-top:1px solid var(--border);padding-top:5px;margin-top:18px}.student-year-header{display:flex;justify-content:space-between;align-items:center;padding:14px 0}.student-year-header h3{margin:0;font-size:21px}.student-year-header span{font-size:14px;font-weight:800;color:var(--muted)}.student-class-attendance{border:1px solid var(--border);border-radius:11px;overflow:hidden;margin:0 0 16px;background:#fbfdff}.student-class-title{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:16px 18px;background:#f4f9fc;border-bottom:1px solid var(--border)}.student-class-title strong{display:block;font-size:17px}.student-class-title span{display:block;margin-top:4px;color:var(--muted);font-size:14px;line-height:1.45}.mini-class-state{display:inline-flex!important;align-items:center;background:#eef3f7;color:#64758a;padding:7px 10px;border-radius:999px;font-weight:850;font-size:12px!important;white-space:nowrap}.mini-class-state.today{background:#e5f8ed;color:#177245}.student-attendance-table{min-width:860px}.student-attendance-table td{font-size:15px}.student-btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}.student-btn.present{background:#e8f8ef;color:#177245;border-color:#bfe7cf}.student-btn.absent{background:#fff1f2;color:#b42332;border-color:#fecdd3}.student-btn.excused{background:#eef3f7;color:#52677e;border-color:#d7e1ea}
+@media(max-width:1000px){.teacher-workspace{grid-template-columns:1fr}.teacher-inner-sidebar{position:static;display:flex;flex-wrap:wrap;align-items:center;gap:4px}.teacher-inner-sidebar-title{width:100%;border-bottom:0;margin:0;padding-bottom:8px}.teacher-inner-heading{padding:9px 8px 5px;width:auto}.teacher-inner-link{margin:0}.teacher-workspace-main{width:100%}}
+@media(max-width:760px){.teacher-inner-sidebar{display:block}.teacher-inner-sidebar-title{padding-bottom:10px}.teacher-inner-link{display:inline-flex;margin:2px}.teacher-inner-heading{display:block;padding-left:4px}.student-class-title{align-items:flex-start;flex-direction:column}.teacher-status-area{gap:8px}.status-help{width:100%}}
+.not-today-status{background:#eef3f7;color:#61738a}.teacher-inner-link:focus-visible{outline:3px solid #9be8f6;outline-offset:2px}.student-class-attendance .status{white-space:nowrap}
+
+
+/* ==========================================================
+   MONTHLY STUDENT ATTENDANCE + TEACHER STATUS LOCKS
+   ========================================================== */
+.teacher-inner-link.month-link{font-size:14px;font-weight:800;padding:10px 11px}.student-attendance-rule{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;margin:0 0 20px;background:#fff8df;border:1px solid #f1df9c;border-radius:10px;color:#695200;font-size:15px;line-height:1.5}.student-attendance-rule i{font-size:18px;margin-top:2px}.student-month-section{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:0 0 24px;background:#fff}.student-month-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:#f3f8fb;border-bottom:1px solid var(--border)}.student-month-header h3{margin:0;font-size:24px!important;color:var(--navy)}.student-month-header span{display:block;margin-top:4px;color:var(--muted);font-size:14px;font-weight:700}.student-month-header>i{font-size:25px;color:var(--cyan2)}.monthly-year-section{padding:0 18px 8px;margin-top:0;border-top:0}.monthly-year-section .student-year-header{padding:17px 0 13px}.attendance-occurrence{margin:0 0 16px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff}.attendance-occurrence-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;background:#fafcff;border-bottom:1px solid var(--border)}.attendance-occurrence-header strong{display:block;font-size:16px}.attendance-occurrence-header span{display:block;margin-top:3px;color:var(--muted);font-size:13px;font-weight:700}.occurrence-state{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;font-size:13px;font-weight:900;white-space:nowrap}.occurrence-state.attending{background:#e5f8ed;color:#177245}.occurrence-state.on-leave{background:#fff1f2;color:#b42332}.occurrence-state.leave-pending{background:#fff7df;color:#956b00}.occurrence-state.waiting{background:#eef3f7;color:#61738a}.student-attendance-locked{display:flex;align-items:flex-start;gap:10px;margin:14px 16px 0;padding:12px 14px;background:#f3f5f7;border:1px solid #dce3e9;border-radius:9px;color:#556a7e;font-size:14px;line-height:1.45}.student-attendance-locked i{color:#7a8a99;margin-top:2px}.attendance-occurrence .table-wrap{margin-top:0}.attendance-occurrence .student-attendance-table td{font-size:15px}.attendance-occurrence .student-attendance-actions{padding:2px 0}.student-btn:disabled{opacity:.42;pointer-events:none}.student-btn:disabled{filter:grayscale(.3)}
+@media(max-width:760px){.student-month-header{align-items:flex-start}.student-month-header h3{font-size:21px!important}.attendance-occurrence-header{flex-direction:column;align-items:flex-start}.occurrence-state{white-space:normal}.student-attendance-rule{font-size:14px}}
+
+
+/* Teacher portal navigation fix: one sidebar only, with section scrolling */
+.teacher-workspace{display:block!important;max-width:100%;}
+.teacher-workspace-main{width:100%;min-width:0;}
+.teacher-workspace-main > .card{scroll-margin-top:28px;}
+#my-classes,#leave-requests,#student-attendance{scroll-margin-top:28px;}
+.teacher-nav-link{position:relative;}
+.teacher-nav-link.active{background:rgba(255,255,255,.12)!important;color:#fff!important;}
+.teacher-nav-link.active::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:4px;border-radius:0 4px 4px 0;background:#6ee7f2;}
+.teacher-nav-link:hover{background:rgba(255,255,255,.08)!important;color:#fff!important;}
+@media(max-width:760px){#my-classes,#leave-requests,#student-attendance{scroll-margin-top:16px;}}
+
+/* Teacher portal - separate page navigation */
+.teacher-leave-page-form{grid-template-columns:minmax(220px,260px) minmax(240px,1fr) auto;}
+.leave-request-class-card{padding:20px 0;border-top:1px solid var(--border);}
+.leave-request-class-card:first-of-type{border-top:0;}
+.leave-request-class-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px;}
+.leave-request-class-header h3{margin:10px 0 5px;font-size:20px;}
+.leave-request-class-header p{margin:0;color:var(--muted);font-size:15px;}
+.text-button,.secondary-button{display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+.student-month-section{overflow:hidden;}
+.teacher-nav-link{display:none!important;}
+@media(max-width:1050px){.teacher-leave-page-form{grid-template-columns:1fr}.leave-request-class-header{flex-direction:column}.leave-request-class-header .text-button{width:max-content}}
+
+/* =========================================================
+   OPTISKED AI - MACHINE LEARNING RECOMMENDATION UI
+   ========================================================= */
+.ml-status-line{display:block;margin-top:8px;color:#087b9e;font-size:13px;font-weight:650}
+.ml-score{display:inline-flex;margin-top:8px;padding:5px 9px;border-radius:999px;background:#e7f8fd;color:#087b9e;font-size:12px;font-weight:800}
+.ai-badge{white-space:nowrap}

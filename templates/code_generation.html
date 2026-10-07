@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header"><div><h1>Code Generation</h1><p>Generate and distribute role-specific access codes so teachers and students can access their schedules.</p></div><form method="post" action="{{ url_for('generate_all_codes') }}"><button class="primary-button" type="submit"><i class="fa-solid fa-rotate"></i> Generate / Repair Codes</button></form></div>
+<div class="code-columns">
+<section class="card code-section"><div class="section-title"><div><h2>Teacher Access Codes</h2><p>Share each code with the corresponding faculty member.</p></div><span class="cyan-label">TEACHER</span></div>{% for c in teacher_codes %}<div class="access-card"><div class="access-info"><strong>{{ c.teacher_name }}</strong><small>{{ c.subject_name }} · {{ c.program }} · {{ c.year_level }}</small><code class="teacher-code">{{ c.code }}</code></div><button class="copy-button" data-copy="{{ c.code }}">Copy</button></div>{% else %}<div class="empty-inline">No teacher codes yet. Add a schedule first.</div>{% endfor %}</section>
+<section class="card code-section"><div class="section-title"><div><h2>Student Access Codes</h2><p>Students use these codes to add the class to My Schedule.</p></div><span class="green-label">STUDENT</span></div>{% for c in student_codes %}<div class="access-card"><div class="access-info"><strong>{{ c.program }} · {{ c.year_level }} · Section {{ c.section }}</strong><small>{{ c.subject_code }} — {{ c.subject_name }} · {{ c.teacher_name }}</small><code class="student-code">{{ c.code }}</code></div><button class="copy-button" data-copy="{{ c.code }}">Copy</button></div>{% else %}<div class="empty-inline">No student codes yet. Add a schedule first.</div>{% endfor %}</section>
+</div>
+{% endblock %}

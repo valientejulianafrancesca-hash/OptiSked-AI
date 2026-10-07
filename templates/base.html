@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title or app_name }}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='20261006-teacher-nav3') }}">
+</head>
+<body>
+{% if session.get('user_id') %}
+<div class="app-shell">
+<aside class="sidebar">
+  <div>
+    <div class="brand">
+      <img class="optisked-logo sidebar-logo" src="{{ url_for('static', filename='optisked-logo.jpg', v='20261006-teacher-nav3') }}" alt="OptiSked AI logo">
+      <div><strong>OptiSked AI</strong><span>SMART ACADEMIC SCHEDULING</span></div>
+    </div>
+    <div class="role-label">{{ session.get('role','').replace('_',' ').upper() }}{% if session.get('role') == 'program_head' and session.get('program') %} · {{ session.get('program') }}{% endif %}</div>
+    <nav>
+      {% if session.get('role') == 'program_head' %}
+      <a class="{% if active_page == 'dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}"><i class="fa-solid fa-calendar-days"></i><span>Schedule Builder</span></a>
+      <a class="{% if active_page == 'code_generation' %}active{% endif %}" href="{{ url_for('code_generation') }}"><i class="fa-solid fa-key"></i><span>Code Generation</span></a>
+      <a class="{% if active_page == 'attendance' %}active{% endif %}" href="{{ url_for('attendance_records') }}"><i class="fa-solid fa-clipboard-user"></i><span>Attendance Records</span></a>
+      {% elif session.get('role') == 'teacher' %}
+      <a class="{% if active_page == 'teacher_classes' %}active{% endif %}" href="{{ url_for('teacher_portal') }}"><i class="fa-solid fa-calendar-days"></i><span>My Classes</span></a>
+      <a class="{% if active_page == 'teacher_leave' %}active{% endif %}" href="{{ url_for('teacher_leave_requests') }}"><i class="fa-solid fa-calendar-xmark"></i><span>Leave Requests</span></a>
+      <a class="{% if active_page == 'teacher_student_attendance' %}active{% endif %}" href="{{ url_for('teacher_student_attendance_page') }}"><i class="fa-solid fa-users"></i><span>Student Attendance</span></a>
+      {% elif session.get('role') == 'student' %}
+      <a class="active" href="{{ url_for('student_portal') }}"><i class="fa-solid fa-graduation-cap"></i><span>My Schedule</span></a>
+      {% endif %}
+    </nav>
+  </div>
+  <div class="sidebar-bottom">
+    <div class="profile"><div class="profile-dot">{{ session.get('full_name','U')[0]|upper }}</div><div><strong>{{ session.get('full_name') }}</strong><small>{{ session.get('role','').replace('_',' ').title() }}</small></div></div>
+    <a class="signout" href="{{ url_for('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+  </div>
+</aside>
+<main class="main-area">
+{% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}<div class="alerts">{% for category,message in messages %}<div class="alert {{ 'alert-error' if category=='error' else 'alert-success' }}"><i class="fa-solid {{ 'fa-circle-exclamation' if category=='error' else 'fa-circle-check' }}"></i>{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+</main>
+</div>
+{% else %}{% block auth %}{% endblock %}{% endif %}
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>

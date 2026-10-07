@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>My Classes</h1>
+    <p>View your assigned classes and submit date-specific attendance.</p>
+  </div>
+  <a class="secondary-button" href="{{ url_for('teacher_leave_requests') }}"><i class="fa-solid fa-calendar-xmark"></i> Leave Requests</a>
+</div>
+
+<div class="info-banner">
+  <i class="fa-solid fa-shield-check"></i>
+  <div>
+    <strong>Attendance is date-based.</strong> You can only mark yourself <strong>Attending</strong> on the actual scheduled day of the class, and photo proof is required. A leave request applies only to the selected class date.
+  </div>
+</div>
+
+<div class="card action-card">
+  <div>
+    <h2>Enter Course Code</h2>
+    <p>Use the Teacher Access Code provided by the Program Head.</p>
+  </div>
+  <form class="code-form" method="post" action="{{ url_for('teacher_claim_subject') }}">
+    <input name="code" placeholder="e.g. TCH-BR-CC101" required>
+    <button class="primary-button" type="submit">Add Class</button>
+  </form>
+</div>
+
+<section class="card teacher-classes-card">
+  <div class="section-title">
+    <div><h2>My Classes</h2><p>Each class has its own attendance status for today's scheduled occurrence.</p></div>
+    <span class="status-date">{{ today }}</span>
+  </div>
+
+  <div class="status-legend teacher-status-legend">
+    <span><i class="legend-dot green"></i> Attending</span>
+    <span><i class="legend-dot red"></i> On Leave</span>
+    <span><i class="legend-dot yellow"></i> Pending / Leave Pending</span>
+    <span><i class="legend-dot gray"></i> Not Today</span>
+  </div>
+
+  {% for s in class_data %}
+  <article class="teacher-class-card">
+    <div class="teacher-class-main">
+      <div class="class-meta"><span class="program-badge">{{ s.program }}</span><span class="year-badge">{{ s.year_level }}</span><span class="section-badge">Section {{ s.section }}</span></div>
+      <h3>{{ s.subject_code }} — {{ s.subject_name }}</h3>
+      <p><strong>{{ s.day }}</strong> · {{ format_12hr(s.start_time) }} – {{ format_12hr(s.end_time) }} · {{ s.room }}</p>
+      {% if s.is_class_day %}
+        <div class="class-day-note"><i class="fa-solid fa-circle-dot"></i> This class is scheduled today.</div>
+      {% else %}
+        <div class="class-day-note not-today"><i class="fa-regular fa-calendar"></i> Attendance becomes available on {{ s.day }}.</div>
+      {% endif %}
+    </div>
+
+    <div class="teacher-status-area">
+      {% if s.attendance_state == 'Attending' %}
+        <span class="attendance-state attending"><i class="fa-solid fa-circle-check"></i> Attending</span>
+        <span class="status-help">Photo proof submitted</span>
+      {% elif s.attendance_state == 'On Leave' %}
+        <span class="attendance-state on-leave"><i class="fa-solid fa-circle-xmark"></i> On Leave</span>
+        <span class="status-help">Leave approved for today</span>
+      {% elif s.attendance_state == 'Leave Pending' %}
+        <span class="attendance-state pending"><i class="fa-solid fa-clock"></i> Leave Pending</span>
+        <span class="status-help">Waiting for Program Head approval</span>
+      {% elif s.attendance_state == 'Not Today' %}
+        <span class="attendance-state not-today"><i class="fa-regular fa-calendar"></i> Not Today</span>
+        <span class="status-help">Attendance is only available on {{ s.day }}</span>
+      {% else %}
+        <span class="attendance-state pending"><i class="fa-solid fa-clock"></i> Pending</span>
+        <span class="status-help">Attendance not submitted yet</span>
+      {% endif %}
+
+      {% if s.is_class_day and s.attendance_state == 'Pending' %}
+      <form class="attendance-proof-form" method="post" action="{{ url_for('teacher_attendance') }}" enctype="multipart/form-data">
+        <input type="hidden" name="schedule_id" value="{{ s.id }}">
+        <label class="file-label compact">Attach photo proof<input type="file" name="photo" accept="image/*" required></label>
+        <button class="attendance-action present" type="submit"><i class="fa-solid fa-check"></i> Mark Attending</button>
+      </form>
+      {% endif %}
+
+      <a class="attendance-action leave-action" href="{{ url_for('teacher_leave_requests', class_id=s.id) }}"><i class="fa-solid fa-calendar-xmark"></i> File Leave</a>
+    </div>
+  </article>
+  {% else %}
+    <div class="empty-inline">No active classes yet. Enter a Teacher Access Code above.</div>
+  {% endfor %}
+</section>
+{% endblock %}

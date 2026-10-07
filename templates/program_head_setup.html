@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Program Head Setup</h1>
+    <p>Assign this Program Head account to the academic program it manages.</p>
+  </div>
+</div>
+<section class="card form-card" style="max-width:760px">
+  <div class="card-title-row">
+    <div>
+      <h2>Select your assigned program</h2>
+      <p>Program Heads can only view and manage schedules for this program. OptiSked AI continues checking conflicts against schedules from every program.</p>
+    </div>
+  </div>
+  {% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}{% for cat,msg in messages %}<div class="inline-alert {{ 'error' if cat=='error' else 'success' }}">{{ msg }}</div>{% endfor %}{% endif %}{% endwith %}
+  <form method="post">
+    <label>Program You Manage
+      <select name="program" required>
+        <option value="">Select Program</option>
+        {% for p in programs %}<option value="{{ p }}" {% if current_program==p %}selected{% endif %}>{{ p }}</option>{% endfor %}
+      </select>
+    </label>
+    <div class="form-actions">
+      <button class="primary-button" type="submit">Continue to Schedule Builder</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

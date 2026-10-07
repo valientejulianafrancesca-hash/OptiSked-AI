@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Leave Requests</h1>
+    <p>Submit and monitor leave requests for your scheduled classes.</p>
+  </div>
+  <a class="secondary-button" href="{{ url_for('teacher_portal') }}"><i class="fa-solid fa-calendar-days"></i> My Classes</a>
+</div>
+
+<div class="info-banner">
+  <i class="fa-solid fa-circle-info"></i>
+  <div>
+    A leave request is for <strong>one exact class date</strong>. The request is sent only to the <strong>Program Head of the class's program</strong>. If you are approved for one Monday, the next Monday is a new attendance occurrence.
+  </div>
+</div>
+
+<section class="card">
+  <div class="section-title"><div><h2>Request Leave</h2><p>Select a class and the specific scheduled date you will miss.</p></div></div>
+
+  {% for s in class_data %}
+  <div class="leave-request-class-card">
+    <div class="leave-request-class-header">
+      <div>
+        <span class="class-meta"><span class="program-badge">{{ s.program }}</span><span class="year-badge">{{ s.year_level }}</span><span class="section-badge">Section {{ s.section }}</span></span>
+        <h3>{{ s.subject_code }} — {{ s.subject_name }}</h3>
+        <p>{{ s.day }} · {{ format_12hr(s.start_time) }} – {{ format_12hr(s.end_time) }} · {{ s.room }}</p>
+      </div>
+      <a class="text-button" href="{{ url_for('teacher_portal') }}">View Class</a>
+    </div>
+
+    <form class="leave-inline-form teacher-leave-page-form" method="post" action="{{ url_for('teacher_leave') }}">
+      <input type="hidden" name="schedule_id" value="{{ s.id }}">
+      <label>Class Date
+        <select name="leave_date" required>
+          <option value="">Select {{ s.day }} class date</option>
+          {% for option in s.leave_options %}
+          <option value="{{ option.value }}" {% if request.args.get('class_id')|int == s.id and loop.first %}selected{% endif %}>{{ option.label }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Reason
+        <input name="reason" placeholder="Reason for leave" required>
+      </label>
+      <button class="attendance-action leave-action" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Leave Request</button>
+    </form>
+  </div>
+  {% else %}
+  <div class="empty-inline">No active classes are assigned to you yet.</div>
+  {% endfor %}
+</section>
+
+<section class="card">
+  <div class="section-title"><div><h2>My Leave History</h2><p>Requests are grouped by their exact class date.</p></div></div>
+  {% for l in leaves %}
+  <div class="record-row">
+    <div>
+      <strong>{{ l.subject_code or 'Class' }} · {{ l.program or 'Program' }} · {{ l.year_level or '' }}</strong>
+      <span>{{ l.leave_date }} · {{ l.reason }}</span>
+    </div>
+    <span class="status {{ 'approved' if l.status=='Approved' else 'pending' if l.status=='Pending' else 'rejected' }}">{{ l.status }}</span>
+  </div>
+  {% else %}
+  <div class="empty-inline">No leave requests yet.</div>
+  {% endfor %}
+</section>
+{% endblock %}

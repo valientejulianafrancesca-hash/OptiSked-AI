@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>Student Attendance</h1>
+    <p>Check student attendance by month, year level, class, and exact class date.</p>
+  </div>
+  <a class="secondary-button" href="{{ url_for('teacher_portal') }}"><i class="fa-solid fa-calendar-days"></i> My Classes</a>
+</div>
+
+<div class="info-banner">
+  <i class="fa-solid fa-lock"></i>
+  <div>
+    <strong>Teacher status controls student attendance.</strong> Students can only be checked after you mark yourself <strong>Attending</strong> for that exact class date with photo proof. If you are <strong>On Leave</strong>, <strong>Leave Pending</strong>, or still <strong>Pending</strong>, student attendance is locked and no checking is required.
+  </div>
+</div>
+
+{% if student_attendance_months %}
+  {% for month in student_attendance_months %}
+  <section class="card student-month-section">
+    <div class="student-month-header">
+      <div><h2>{{ month.label }}</h2><span>Scheduled attendance occurrences through {{ today }}</span></div>
+      <i class="fa-regular fa-calendar-days"></i>
+    </div>
+
+    {% for group in month.year_groups %}
+    <div class="student-year-section monthly-year-section">
+      <div class="student-year-header"><h3>{{ group.year_level }}</h3><span>{{ group.classes|length }} {{ 'class' if group.classes|length == 1 else 'classes' }}</span></div>
+
+      {% for s in group.classes %}
+      <div class="student-class-attendance">
+        <div class="student-class-title">
+          <div><strong>{{ s.subject_code }} — {{ s.subject_name }}</strong><span>{{ s.program }} · Section {{ s.section }} · {{ s.day }} · {{ format_12hr(s.start_time) }}–{{ format_12hr(s.end_time) }} · {{ s.room }}</span></div>
+        </div>
+
+        {% for occ in s.occurrences %}
+        <div class="attendance-occurrence">
+          <div class="attendance-occurrence-header">
+            <div><strong>{{ occ.label }}</strong><span>Scheduled {{ s.day }} class</span></div>
+            {% if occ.teacher_status == 'Attending' %}
+              <span class="occurrence-state attending"><i class="fa-solid fa-circle-check"></i> Teacher Attending</span>
+            {% elif occ.teacher_status == 'On Leave' %}
+              <span class="occurrence-state on-leave"><i class="fa-solid fa-calendar-xmark"></i> Teacher On Leave</span>
+            {% elif occ.teacher_status == 'Leave Pending' %}
+              <span class="occurrence-state leave-pending"><i class="fa-solid fa-clock"></i> Leave Pending</span>
+            {% else %}
+              <span class="occurrence-state waiting"><i class="fa-solid fa-hourglass-half"></i> Teacher Pending</span>
+            {% endif %}
+          </div>
+
+          {% if occ.teacher_status != 'Attending' %}
+          <div class="student-attendance-locked">
+            <i class="fa-solid fa-lock"></i>
+            <div>
+              {% if occ.teacher_status == 'On Leave' %}
+                <strong>No student attendance required.</strong> The teacher is on approved leave for this class date.
+              {% elif occ.teacher_status == 'Leave Pending' %}
+                <strong>Student attendance is locked.</strong> Wait for the Program Head's decision.
+              {% else %}
+                <strong>Student attendance is locked.</strong> Mark yourself Attending with photo proof first.
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+
+          {% if occ.students %}
+          <div class="table-wrap">
+            <table class="student-attendance-table">
+              <thead><tr><th>Student Name</th><th>Year Level</th><th>Attendance</th><th>Actions</th></tr></thead>
+              <tbody>
+              {% for st in occ.students %}
+              <tr>
+                <td><strong>{{ st.full_name }}</strong></td>
+                <td>{{ s.year_level }}</td>
+                <td>
+                  {% if st.status == 'Present' %}<span class="status student-present">Present</span>
+                  {% elif st.status == 'Absent' %}<span class="status student-absent">Absent</span>
+                  {% elif st.status == 'Excused' %}<span class="status student-excused">Excused</span>
+                  {% else %}<span class="status pending">Pending</span>{% endif %}
+                </td>
+                <td>
+                  <div class="student-attendance-actions">
+                    <form method="post" action="{{ url_for('teacher_student_attendance') }}"><input type="hidden" name="schedule_id" value="{{ s.id }}"><input type="hidden" name="student_user_id" value="{{ st.id }}"><input type="hidden" name="attendance_date" value="{{ occ.date }}"><input type="hidden" name="status" value="Present"><button type="submit" class="student-btn present {% if st.status=='Present' %}selected{% endif %}" {% if not occ.can_edit %}disabled{% endif %}><i class="fa-solid fa-check"></i> Present</button></form>
+                    <form method="post" action="{{ url_for('teacher_student_attendance') }}"><input type="hidden" name="schedule_id" value="{{ s.id }}"><input type="hidden" name="student_user_id" value="{{ st.id }}"><input type="hidden" name="attendance_date" value="{{ occ.date }}"><input type="hidden" name="status" value="Absent"><button type="submit" class="student-btn absent {% if st.status=='Absent' %}selected{% endif %}" {% if not occ.can_edit %}disabled{% endif %}><i class="fa-solid fa-xmark"></i> Absent</button></form>
+                    <form method="post" action="{{ url_for('teacher_student_attendance') }}"><input type="hidden" name="schedule_id" value="{{ s.id }}"><input type="hidden" name="student_user_id" value="{{ st.id }}"><input type="hidden" name="attendance_date" value="{{ occ.date }}"><input type="hidden" name="status" value="Excused"><button type="submit" class="student-btn excused {% if st.status=='Excused' %}selected{% endif %}" {% if not occ.can_edit %}disabled{% endif %}><i class="fa-solid fa-minus"></i> Excused</button></form>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+            <div class="empty-inline">No students are enrolled in this class yet.</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+{% else %}
+  <section class="card"><div class="empty-inline">No student-attendance history is available yet.</div></section>
+{% endif %}
+{% endblock %}

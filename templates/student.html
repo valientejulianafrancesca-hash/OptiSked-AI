@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header"><div><h1>Student Portal</h1><p>Join your classes, view your year-level timetable, and see whether your teacher is attending, on leave, or still pending.</p></div></div>
+
+<div class="card action-card"><div><h2>Enter Class Code</h2><p>Use the Student Access Code provided by the Program Head.</p></div><form class="code-form" method="post" action="{{ url_for('student_add_subject') }}"><input name="code" placeholder="e.g. STU-CC101-1A" required><button class="primary-button">Add Subject</button></form></div>
+
+<div class="card"><div class="section-title"><div><h2>My Schedule</h2><p>Faculty status is connected to the teacher's class-specific attendance and leave record.</p></div><span class="status-date">{{ today }}</span></div>
+<div class="status-legend"><span><i class="legend-dot green"></i> Attending</span><span><i class="legend-dot red"></i> On Leave</span><span><i class="legend-dot yellow"></i> Pending / Leave Pending</span></div>
+<div class="table-wrap"><table><thead><tr><th>Year Level</th><th>Day</th><th>Time</th><th>Subject</th><th>Faculty</th><th>Room</th><th>Faculty Status</th></tr></thead><tbody>
+{% for s in classes %}<tr><td>{{ s.year_level }} · Section {{ s.section }}</td><td>{{ s.day }}</td><td>{{ format_12hr(s.start_time) }} – {{ format_12hr(s.end_time) }}</td><td><strong>{{ s.subject_code }}</strong><br>{{ s.subject_name }}</td><td>{{ s.teacher_name }}</td><td>{{ s.room }}</td><td>{% if s.attendance_status=='Attending' %}<span class="status attending">Attending</span>{% elif s.attendance_status=='On Leave' %}<span class="status leave">On Leave</span>{% elif s.attendance_status=='Leave Pending' %}<span class="status pending">Leave Pending</span>{% elif s.attendance_status=='Not Today' %}<span class="status not-today-status">Not Today</span>{% else %}<span class="status pending">Pending</span>{% endif %}</td></tr>
+{% else %}<tr><td colspan="7" class="empty-table">No enrolled subjects. Enter a Student Access Code above.</td></tr>{% endfor %}
+</tbody></table></div></div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block auth %}
+<div class="auth-page">
+  <section class="auth-hero">
+    <div class="auth-logo"><img class="optisked-logo login-logo" src="{{ url_for('static', filename='optisked-logo.jpg', v='20261006-attendance3') }}" alt="OptiSked AI logo"><div><strong>OptiSked AI</strong><span>SMART ACADEMIC SCHEDULING</span></div></div>
+    <div class="auth-copy"><h1>Smart Academic<br><span>Scheduling.</span></h1><p>Plan conflict-free classes, manage faculty schedules, distribute class codes, and monitor attendance in one web-based system.</p>
+      <div class="feature-list"><div><i class="fa-solid fa-wand-magic-sparkles"></i> AI-assisted conflict detection</div><div><i class="fa-solid fa-key"></i> Secure class code system</div><div><i class="fa-solid fa-camera"></i> Photo-verified attendance</div><div><i class="fa-solid fa-chart-line"></i> Real-time records</div></div>
+    </div>
+  </section>
+  <section class="auth-panel"><div class="login-card">
+    <div class="auth-tabs"><a class="{% if not signup_mode %}active{% endif %}" href="{{ url_for('login') }}">Log in</a><a class="{% if signup_mode %}active{% endif %}" href="{{ url_for('signup') }}">Sign Up</a></div>
+    <h2>{% if signup_mode %}Create your account{% else %}Welcome back{% endif %}</h2><p class="auth-subtitle">{% if signup_mode %}Create an account and choose your OptiSked role.{% else %}Sign in to your OptiSked account{% endif %}</p>
+    {% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}{% for cat,msg in messages %}<div class="inline-alert {{ 'error' if cat=='error' else 'success' }}">{{ msg }}</div>{% endfor %}{% endif %}{% endwith %}
+    <form method="post" action="{{ url_for('signup') if signup_mode else url_for('login') }}">
+      {% if signup_mode %}<div class="form-grid two"><label>First Name<input name="first_name" value="{{ request.form.get('first_name','') }}" placeholder="First name" required></label><label>Last Name<input name="last_name" value="{{ request.form.get('last_name','') }}" placeholder="Last name" required></label></div>{% endif %}
+      <label>Username / Account ID<input name="username" value="{{ request.form.get('username','') }}" placeholder="your.username" required autofocus></label>
+      <label>Password<div class="password-field"><input id="password" type="password" name="password" placeholder="Enter your password" required><button type="button" onclick="togglePassword()"><i id="passwordIcon" class="fa-solid fa-eye"></i></button></div></label>
+      {% if signup_mode %}
+      <label>Role<select name="role" id="signupRole" required onchange="toggleProgramHeadProgram()"><option value="">Choose your role</option><option value="program_head" {% if request.form.get('role','') == 'program_head' %}selected{% endif %}>Program Head</option><option value="teacher" {% if request.form.get('role','') == 'teacher' %}selected{% endif %}>Teacher</option><option value="student" {% if request.form.get('role','') == 'student' %}selected{% endif %}>Student</option></select></label>
+      <label id="programHeadProgramField" style="display:none">Program You Manage
+        <select name="program" id="programHeadProgram">
+          <option value="">Select Program</option>
+          {% for p in programs %}<option value="{{ p }}" {% if request.form.get('program','') == p %}selected{% endif %}>{{ p }}</option>{% endfor %}
+        </select>
+        <small class="field-help">Program Heads can only manage and view schedules belonging to this program. Conflict checking still includes all programs.</small>
+      </label>
+      <button class="primary-button full" type="submit">Create Account</button>
+      {% else %}<button class="primary-button full" type="submit">Log In</button>{% endif %}
+    </form>
+    <div class="auth-footer">{% if signup_mode %}<span>Already have an account?</span> <a href="{{ url_for('login') }}">Log in</a>{% else %}<a href="{{ url_for('signup') }}">Create a new account</a>{% endif %}</div>
+  </div></section>
+</div>
+
+<script>
+function toggleProgramHeadProgram(){
+  const role=document.getElementById('signupRole');
+  const field=document.getElementById('programHeadProgramField');
+  const program=document.getElementById('programHeadProgram');
+  const show=role && role.value==='program_head';
+  if(field) field.style.display=show ? 'block' : 'none';
+  if(program) program.required=show;
+}
+document.addEventListener('DOMContentLoaded', toggleProgramHeadProgram);
+</script>
+{% endblock %}
